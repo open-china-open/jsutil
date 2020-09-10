@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "rootDir": "./lib",
+        "outDir": "./dist",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "declaration": true, // 生成相应的 .d.ts文件。
+        // "declarationDir": "", // 生成声明文件的输出路径。
+        "removeComments": true,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "charset": "utf8", // 文档格式
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "pretty": true
+    },
+    "include": ["./lib/*.ts"],
+    "exclude": ["node_modules"]
+}

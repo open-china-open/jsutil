@@ -1,0 +1,41 @@
+{
+    "name": "@jackchendong/jstuil",
+    "author": "Jack Chen",
+    "version": "1.0.0",
+    "description": "lucky",
+    "main": "./dist/lib/index.js",
+    "keywords": [
+        "util",
+        "parser",
+        "stringifier"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.12.0",
+        "@typescript-eslint/parser": "^2.12.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-html": "^6.0.0",
+        "alsatian": "^3.2.1",
+        "codecov": "^3.7.2",
+        "nyc": "^15.1.0",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.7.4"
+    },
+    "eslintIgnore": [
+        ".eslintrc.js",
+        "index.js"
+    ],
+    "scripts": {
+        "postversion": "git push origin v%npm_package_version%",
+        "dev": "cross-env NODE_ENV=development nodemon index.js",
+        "prod": "cross-env NODE_ENV=production node index.js",
+        "test": "alsatian --tap test/*.ts",
+        "coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
+        "codecov": "codecov",
+        "tsc": "npm run tsc:clean && npm run tsc:build",
+        "tsc:build": "tsc -b tsconfig.json",
+        "tsc:watch": "tsc -b tsconfig.json --watch",
+        "tsc:clean": "tsc -b tsconfig.json --clean "
+    },
+    "license": "ISC"
+}
