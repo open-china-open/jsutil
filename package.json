@@ -3,7 +3,7 @@
     "author": "Jack Chen",
     "version": "1.0.0",
     "description": "lucky",
-    "main": "./dist/lib/index.js",
+    "main": "./dist/index.js",
     "keywords": [
         "util",
         "parser",
