@@ -35,7 +35,8 @@
         "tsc": "npm run tsc:clean && npm run tsc:build",
         "tsc:build": "tsc -b tsconfig.json",
         "tsc:watch": "tsc -b tsconfig.json --watch",
-        "tsc:clean": "tsc -b tsconfig.json --clean "
+        "tsc:clean": "tsc -b tsconfig.json --clean",
+        "publish": "npm publish --access public"
     },
     "license": "ISC"
 }
