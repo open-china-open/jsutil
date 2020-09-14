@@ -1,7 +1,7 @@
 {
     "name": "@jackchendong/jstuil",
     "author": "Jack Chen",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "lucky",
     "main": "./dist/index.js",
     "keywords": [
@@ -9,6 +9,10 @@
         "parser",
         "stringifier"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/open-china-open/jsutil"
+    },
     "dependencies": {},
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^2.12.0",
@@ -36,7 +40,7 @@
         "tsc:build": "tsc -b tsconfig.json",
         "tsc:watch": "tsc -b tsconfig.json --watch",
         "tsc:clean": "tsc -b tsconfig.json --clean",
-        "pub": "npm publish --access public"
+        "pub": "npm run tsc && npm publish --access public"
     },
     "license": "ISC"
 }
