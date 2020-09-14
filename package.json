@@ -1,7 +1,7 @@
 {
     "name": "@jackchendong/jstuil",
     "author": "Jack Chen",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "lucky",
     "main": "./dist/index.js",
     "keywords": [
@@ -36,7 +36,7 @@
         "tsc:build": "tsc -b tsconfig.json",
         "tsc:watch": "tsc -b tsconfig.json --watch",
         "tsc:clean": "tsc -b tsconfig.json --clean",
-        "publish": "npm publish --access public"
+        "pub": "npm publish --access public"
     },
     "license": "ISC"
 }

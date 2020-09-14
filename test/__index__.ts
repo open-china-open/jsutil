@@ -1,36 +1,36 @@
 import { AsyncTest, Expect, Test, TestCase, TestFixture } from "alsatian";
-import { common } from "../lib/index";
+import { client } from "../lib/index";
 
 @TestFixture("client fix")
 export class SetOfTests {
     @TestCase([])
     public async isArray(input: any) {
-        Expect(common.isArray(input)).toBe(true);
+        Expect(client.isArray(input)).toBe(true);
     }
 
     @TestCase("")
     public async isString(input: any) {
-        Expect(common.isString(input)).toBe(true);
+        Expect(client.isString(input)).toBe(true);
     }
 
     @TestCase("18071996467")
     public async checkPhone(phone: string) {
-        Expect(common.checkPhone(phone)).toBe(true);
+        Expect(client.checkPhone(phone)).toBe(true);
     }
 
     @TestCase("18468289@qq.com")
     public async checkEmail(email: string) {
-        Expect(common.checkEmail(email)).toBe(true);
+        Expect(client.checkEmail(email)).toBe(true);
     }
 
     @TestCase(5)
     public async randomStr(length: number) {
-        Expect(common.randomStr(length).length).toBe(length);
+        Expect(client.randomStr(length).length).toBe(length);
     }
 
     @TestCase(5)
     public async randomNumStr(length: number) {
-        Expect(common.randomNumStr(length).length).toBe(length);
+        Expect(client.randomNumStr(length).length).toBe(length);
     }
 
     @TestCase(
@@ -42,7 +42,7 @@ export class SetOfTests {
     )
     @TestCase([[1, 2, 3]], [1, 2, 3])
     public async arrayUnionMany(input: Array<Array<any>>, equal: any) {
-        Expect(common.arrayUnionMany(input)).toEqual(equal);
+        Expect(client.arrayUnionMany(input)).toEqual(equal);
     }
 
     @TestCase(
@@ -62,18 +62,18 @@ export class SetOfTests {
         [3]
     )
     public async arrayIntersectionMany(input: Array<Array<any>>, equal: any) {
-        Expect(common.arrayIntersectionMany(input)).toEqual(equal);
+        Expect(client.arrayIntersectionMany(input)).toEqual(equal);
     }
 
     @TestCase([1, 2, 3], [2, 3, 4], [2, 3])
     @TestCase([1, 2, 3, 5], [2, 3, 4], [2, 3])
     public async arrayIntersectionBy2(input1: Array<any>, input2: Array<any>, equal: any) {
-        Expect(common.arrayIntersectionBy2(input1, input2)).toEqual(equal);
+        Expect(client.arrayIntersectionBy2(input1, input2)).toEqual(equal);
     }
 
     @TestCase([1, 2, [2, 3, [4, 5]]])
     public async arrayFlatten(input: Array<any>) {
-        Expect(common.arrayFlatten(input)).toEqual([1, 2, 2, 3, 4, 5]);
+        Expect(client.arrayFlatten(input)).toEqual([1, 2, 2, 3, 4, 5]);
     }
 
     // @AsyncTest("asychronous test")
