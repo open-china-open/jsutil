@@ -33,6 +33,49 @@ export class SetOfTests {
         Expect(common.randomNumStr(length).length).toBe(length);
     }
 
+    @TestCase(
+        [
+            [1, 2, 3],
+            [2, 3, 4]
+        ],
+        [1, 2, 3, 4]
+    )
+    @TestCase([[1, 2, 3]], [1, 2, 3])
+    public async arrayUnionMany(input: Array<Array<any>>, equal: any) {
+        Expect(common.arrayUnionMany(input)).toEqual(equal);
+    }
+
+    @TestCase(
+        [
+            [1, 2, 3],
+            [2, 3, 4]
+        ],
+        [2, 3]
+    )
+    @TestCase([[1, 2, 3]], [1, 2, 3])
+    @TestCase(
+        [
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5]
+        ],
+        [3]
+    )
+    public async arrayIntersectionMany(input: Array<Array<any>>, equal: any) {
+        Expect(common.arrayIntersectionMany(input)).toEqual(equal);
+    }
+
+    @TestCase([1, 2, 3], [2, 3, 4], [2, 3])
+    @TestCase([1, 2, 3, 5], [2, 3, 4], [2, 3])
+    public async arrayIntersectionBy2(input1: Array<any>, input2: Array<any>, equal: any) {
+        Expect(common.arrayIntersectionBy2(input1, input2)).toEqual(equal);
+    }
+
+    @TestCase([1, 2, [2, 3, [4, 5]]])
+    public async arrayFlatten(input: Array<any>) {
+        Expect(common.arrayFlatten(input)).toEqual([1, 2, 2, 3, 4, 5]);
+    }
+
     // @AsyncTest("asychronous test")
     // public async asyncTest() {
     //     const response = await somethingToHappen();

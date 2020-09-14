@@ -58,10 +58,82 @@ export class client {
     /**
      * 数组取并集
      */
-    static arrayUnion(...args) {}
+    static arrayUnionMany(input: Array<Array<any>>) {
+        if (input.length == 1) {
+            return input[0];
+        } else {
+            let base: any = [];
+            input.forEach((item) => {
+                base = base.concat(item);
+            });
+            let res = new Set(base);
+            return Array.from(res);
+        }
+    }
 
     /**
-     * 数组取交集
+     * 多个数组取交集
+     * @param input 输入
      */
-    static arrayIntersection() {}
+    static arrayIntersectionMany(input: Array<Array<any>>) {
+        if (input.length == 1) {
+            return input[0];
+        } else if (input.length == 2) {
+            return this.arrayIntersectionBy2(input[0], input[1]);
+        } else {
+            let res: any = [];
+            let base = input[0];
+            base.forEach((item) => {
+                let some = 0;
+                for (let i = 1; i < input.length; i++) {
+                    input[i].some((tmp) => {
+                        return tmp == item;
+                    }) && some++;
+                }
+                some == input.length - 1 && res.push(item);
+            });
+            return res;
+        }
+    }
+
+    /**
+     * 2个数组取交集 指针法
+     */
+    static arrayIntersectionBy2(input1: Array<any>, input2: Array<any>) {
+        let res = new Set();
+        let p = 0,
+            q = 0;
+        input1 = input1.sort();
+        input2 = input2.sort();
+        while (p < input1.length && q < input2.length) {
+            if (input1[p] < input2[q]) {
+                p++;
+            } else if (input2[q] < input1[p]) {
+                q++;
+            } else {
+                res.add(input1[p]);
+                p++;
+                q++;
+            }
+        }
+        return Array.from(res);
+    }
+
+    /**
+     *  平级数组
+     * @param input
+     */
+    static arrayFlatten(input: Array<any>) {
+        const stack = [...input];
+        const res: any = [];
+        while (stack.length) {
+            const next = stack.pop();
+            if (Array.isArray(next)) {
+                stack.push(...next);
+            } else {
+                res.push(next);
+            }
+        }
+        return res.reverse();
+    }
 }
