@@ -1,7 +1,7 @@
 {
     "name": "@jackchendong/jsutil",
     "author": "Jack Chen",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "lucky",
     "main": "./dist/index.js",
     "keywords": [
