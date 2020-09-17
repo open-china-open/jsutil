@@ -76,6 +76,12 @@ export class SetOfTests {
     public async arrayFlatten(input: Array<any>) {
         Expect(client.arrayFlatten(input)).toEqual([1, 2, 2, 3, 4, 5]);
     }
+
+    @TestCase([1, 2, 3], [2, 3, 4], [1, 4])
+    public async arrayComplementBy2(input1: Array<any>, input2: Array<any>, equal: any) {
+        Expect(client.arrayComplementBy2(input1, input2)).toEqual(equal);
+    }
+
     /***************************************************************************************************************************************************** */
     @TestCase("\\", "\\")
     @TestCase("?", "?")

@@ -121,6 +121,21 @@ export class client {
     }
 
     /**
+     * 2个数组取补集
+     */
+    static arrayComplementBy2(input1: any[], input2: any[]): any[] {
+        return input1
+            .filter((e) => {
+                return !(input2.indexOf(e) > -1);
+            })
+            .concat(
+                input2.filter((e) => {
+                    return !(input1.indexOf(e) > -1);
+                })
+            );
+    }
+
+    /**
      *  平级数组
      * @param input
      */
@@ -140,13 +155,11 @@ export class client {
 
     /***************************************************************************************************************************************************** */
     static regGetString(input: string): string {
-        console.log(input);
         let fbsArr = ["\\", "$", "^", "?", "+", "*", ".", "(", ")", "{", "}", "[", "]", "|", "/"];
         let tmp = "";
         for (let i = 0; i < input.length; i++) {
             tmp += fbsArr.includes(input[i]) ? `\\${input[i]}` : input[i];
         }
-        console.log(tmp);
         return tmp;
     }
 }
