@@ -1,4 +1,5 @@
 export class client {
+    /***************************************************************************************************************************************************** */
     /**
      * 判断string类型
      * @param input
@@ -14,7 +15,7 @@ export class client {
     static isArray(input: any): boolean {
         return Object.prototype.toString.call(input) == "[object Array]";
     }
-
+    /***************************************************************************************************************************************************** */
     /**
      * 检查手机号
      * @param phone
@@ -30,7 +31,7 @@ export class client {
     static checkEmail(email: string): boolean {
         return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email);
     }
-
+    /***************************************************************************************************************************************************** */
     /**
      * 字符串随机
      * @param length
@@ -54,11 +55,11 @@ export class client {
         while (length--) noceStr += chars[(Math.random() * maxPos) | 0];
         return noceStr;
     }
-
+    /***************************************************************************************************************************************************** */
     /**
      * 数组取并集
      */
-    static arrayUnionMany(input: Array<Array<any>>) {
+    static arrayUnionMany(input: Array<Array<any>>): any[] {
         if (input.length == 1) {
             return input[0];
         } else {
@@ -75,7 +76,7 @@ export class client {
      * 多个数组取交集
      * @param input 输入
      */
-    static arrayIntersectionMany(input: Array<Array<any>>) {
+    static arrayIntersectionMany(input: Array<Array<any>>): any[] {
         if (input.length == 1) {
             return input[0];
         } else if (input.length == 2) {
@@ -99,7 +100,7 @@ export class client {
     /**
      * 2个数组取交集 指针法
      */
-    static arrayIntersectionBy2(input1: Array<any>, input2: Array<any>) {
+    static arrayIntersectionBy2(input1: Array<any>, input2: Array<any>): any[] {
         let res = new Set();
         let p = 0,
             q = 0;
@@ -123,7 +124,7 @@ export class client {
      *  平级数组
      * @param input
      */
-    static arrayFlatten(input: Array<any>) {
+    static arrayFlatten(input: Array<any>): any[] {
         const stack = [...input];
         const res: any = [];
         while (stack.length) {
@@ -135,5 +136,17 @@ export class client {
             }
         }
         return res.reverse();
+    }
+
+    /***************************************************************************************************************************************************** */
+    static regGetString(input: string): string {
+        console.log(input);
+        let fbsArr = ["\\", "$", "^", "?", "+", "*", ".", "(", ")", "{", "}", "[", "]", "|", "/"];
+        let tmp = "";
+        for (let i = 0; i < input.length; i++) {
+            tmp += fbsArr.includes(input[i]) ? `\\${input[i]}` : input[i];
+        }
+        console.log(tmp);
+        return tmp;
     }
 }

@@ -3,6 +3,7 @@ import { client } from "../lib/index";
 
 @TestFixture("client fix")
 export class SetOfTests {
+    /***************************************************************************************************************************************************** */
     @TestCase([])
     public async isArray(input: any) {
         Expect(client.isArray(input)).toBe(true);
@@ -12,7 +13,7 @@ export class SetOfTests {
     public async isString(input: any) {
         Expect(client.isString(input)).toBe(true);
     }
-
+    /***************************************************************************************************************************************************** */
     @TestCase("18071996467")
     public async checkPhone(phone: string) {
         Expect(client.checkPhone(phone)).toBe(true);
@@ -22,7 +23,7 @@ export class SetOfTests {
     public async checkEmail(email: string) {
         Expect(client.checkEmail(email)).toBe(true);
     }
-
+    /***************************************************************************************************************************************************** */
     @TestCase(5)
     public async randomStr(length: number) {
         Expect(client.randomStr(length).length).toBe(length);
@@ -32,7 +33,7 @@ export class SetOfTests {
     public async randomNumStr(length: number) {
         Expect(client.randomNumStr(length).length).toBe(length);
     }
-
+    /***************************************************************************************************************************************************** */
     @TestCase(
         [
             [1, 2, 3],
@@ -75,7 +76,18 @@ export class SetOfTests {
     public async arrayFlatten(input: Array<any>) {
         Expect(client.arrayFlatten(input)).toEqual([1, 2, 2, 3, 4, 5]);
     }
-
+    /***************************************************************************************************************************************************** */
+    @TestCase("\\", "\\")
+    @TestCase("?", "?")
+    @TestCase("/", "/")
+    @TestCase("a?", "a?")
+    @TestCase("]", "]")
+    @TestCase("{0}", "{0}")
+    @TestCase("*", "*")
+    public async regGetString(input: string, equal: any) {
+        Expect(new RegExp(client.regGetString(input)).test(equal)).toEqual(true);
+        // Expect(client.getRegString(input)).toEqual(equal);
+    }
     // @AsyncTest("asychronous test")
     // public async asyncTest() {
     //     const response = await somethingToHappen();
